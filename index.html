@@ -26,6 +26,30 @@
   .menu{display:flex;gap:6px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:5px;border-radius:999px;backdrop-filter:blur(10px)}
   .menu a{color:#cfcfcf;text-decoration:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;border-radius:999px;transition:.25s}
   .menu a:hover,.menu a.ativo{background:var(--roxo);color:#fff}
+  .hamb{display:none;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);backdrop-filter:blur(10px);
+    cursor:pointer;position:relative;z-index:61}
+  .hamb span{position:absolute;left:14px;right:14px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+  .hamb span:nth-child(1){top:17px}.hamb span:nth-child(2){top:23px}.hamb span:nth-child(3){top:29px}
+  .nav.aberto .hamb{background:var(--roxo);border-color:var(--roxo)}
+  .nav.aberto .hamb span:nth-child(1){top:23px;transform:rotate(45deg)}
+  .nav.aberto .hamb span:nth-child(2){opacity:0}
+  .nav.aberto .hamb span:nth-child(3){top:23px;transform:rotate(-45deg)}
+  @media (max-width:900px){
+    .ano{display:none}
+    .hamb{display:block}
+    .menu{position:fixed;inset:0;z-index:60;flex-direction:column;align-items:flex-start;justify-content:center;gap:6px;padding:0 9vw;border:none;border-radius:0;
+      background:radial-gradient(ellipse at 100% 0%,rgba(87,31,174,.45),transparent 60%),rgba(0,0,0,.96);
+      opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+    .nav.aberto .menu{opacity:1;visibility:visible}
+    .menu a{font-family:'Anton',sans-serif;font-size:clamp(40px,11vw,64px);letter-spacing:1px;padding:4px 0;border-radius:0;background:none!important;color:#fff;
+      transform:translateY(20px);opacity:0;transition:.4s}
+    .menu a.ativo,.menu a:hover{color:var(--roxo-claro)}
+    .nav.aberto .menu a{transform:none;opacity:1}
+    .nav.aberto .menu a:nth-child(2){transition-delay:.04s}.nav.aberto .menu a:nth-child(3){transition-delay:.08s}
+    .nav.aberto .menu a:nth-child(4){transition-delay:.12s}.nav.aberto .menu a:nth-child(5){transition-delay:.16s}
+    .nav.aberto .menu a:nth-child(6){transition-delay:.2s}
+    .logo{position:relative;z-index:61}
+  }
   .ano{font-family:'Special Elite',monospace;font-size:13px;color:#aaa}
 
   /* ===== ABERTURA ===== */
@@ -250,6 +274,8 @@
   .zap-flutua:hover{transform:scale(1.1)}
   .zap-flutua svg{width:32px;height:32px;fill:#fff}
   @media (max-width:900px){.contato-grid{grid-template-columns:1fr}.perfil .circ{width:110px;height:110px}}
+  .contato-grid>*{min-width:0}.canal small{overflow-wrap:anywhere}
+  @media (max-width:600px){.perfil{flex-direction:column;align-items:flex-start;gap:18px}.perfil h3{font-size:30px}.canal{padding:16px 18px;gap:14px}}
 
   .proximo{min-height:30vh;display:flex;align-items:center;justify-content:center;font-family:'Special Elite',monospace;color:#555;letter-spacing:3px;text-transform:uppercase;font-size:13px}
 
@@ -261,7 +287,6 @@
     .titulo{align-items:center;padding:0 0 30vh}
     .foto{right:auto;left:21vw;top:auto;bottom:12vh;width:58vw}
     .sub{left:50%;transform:translateX(-50%);bottom:9vh;font-size:11px}
-    .menu a{padding:7px 10px;font-size:10px;letter-spacing:1px}
     .ano{display:none}
     .obj.esconde-mobile{display:none}
   }
@@ -280,6 +305,7 @@
     <a href="#contato">Contato</a>
   </div>
   <div class="ano">© 2026</div>
+  <button class="hamb" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- ===================== PARTE 1: ABERTURA ===================== -->
@@ -482,7 +508,7 @@
   </div>
 
   <div class="subtit" style="margin-top:0"><h3>Posts <em>únicos</em></h3><div class="linha"></div><small>clique para ampliar</small></div>
-  <div class="mural"><div class="arte"><img src="img/design/post-01.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-02.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-03.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-04.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-05.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-06.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-07.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-08.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-09.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-10.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-11.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-12.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-13.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-14.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-15.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-16.png" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-17.png" alt="Arte para redes sociais" loading="lazy"></div></div>
+  <div class="mural"><div class="arte"><img src="img/design/post-01.png" width="640" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-02.png" width="640" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-03.png" width="640" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-04.png" width="640" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-05.png" width="800" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-06.png" width="800" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-07.png" width="800" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-08.png" width="800" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-09.png" width="640" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-10.png" width="640" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-11.png" width="450" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-12.png" width="450" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-13.png" width="640" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-14.png" width="640" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-15.png" width="640" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-16.png" width="640" height="800" alt="Arte para redes sociais" loading="lazy"></div><div class="arte"><img src="img/design/post-17.png" width="640" height="800" alt="Arte para redes sociais" loading="lazy"></div></div>
 
   <div class="subtit"><h3>Carrosséis</h3><div class="linha"></div><small>arraste para o lado →</small></div>
   <div class="carrossel"><img src="img/design/carrossel-01.png" alt="Carrossel para Instagram" loading="lazy"></div>
@@ -490,7 +516,7 @@
 
   <div class="subtit"><h3>Banners <em>com IA</em></h3><div class="linha"></div></div>
   <div class="nota-ia"><div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/><text x="12" y="15.2" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="700" fill="#fff" stroke="none">IA</text></svg></div><div>As imagens deste projeto foram <b>geradas por IA a partir de prompts autorais</b>, desenvolvidos por mim do zero. Além da criação visual, fui responsável por <b>toda a copywriting dos banners</b>, alinhando imagem, mensagem e objetivo de comunicação.</div></div>
-  <div class="grade-banners"><div class="arte"><img src="img/design/banner-ia-01.jpg" alt="Banner com imagem gerada por IA" loading="lazy"></div><div class="arte"><img src="img/design/banner-ia-02.jpg" alt="Banner com imagem gerada por IA" loading="lazy"></div><div class="arte"><img src="img/design/banner-ia-03.jpg" alt="Banner com imagem gerada por IA" loading="lazy"></div><div class="arte"><img src="img/design/banner-ia-04.jpg" alt="Banner com imagem gerada por IA" loading="lazy"></div><div class="arte"><img src="img/design/banner-ia-05.jpg" alt="Banner com imagem gerada por IA" loading="lazy"></div><div class="arte"><img src="img/design/banner-ia-06.jpg" alt="Banner com imagem gerada por IA" loading="lazy"></div><div class="arte"><img src="img/design/banner-ia-07.jpg" alt="Banner com imagem gerada por IA" loading="lazy"></div></div>
+  <div class="grade-banners"><div class="arte"><img src="img/design/banner-ia-01.jpg" width="640" height="800" alt="Banner com imagem gerada por IA" loading="lazy"></div><div class="arte"><img src="img/design/banner-ia-02.jpg" width="640" height="800" alt="Banner com imagem gerada por IA" loading="lazy"></div><div class="arte"><img src="img/design/banner-ia-03.jpg" width="640" height="800" alt="Banner com imagem gerada por IA" loading="lazy"></div><div class="arte"><img src="img/design/banner-ia-04.jpg" width="669" height="800" alt="Banner com imagem gerada por IA" loading="lazy"></div><div class="arte"><img src="img/design/banner-ia-05.jpg" width="640" height="800" alt="Banner com imagem gerada por IA" loading="lazy"></div><div class="arte"><img src="img/design/banner-ia-06.jpg" width="640" height="800" alt="Banner com imagem gerada por IA" loading="lazy"></div><div class="arte"><img src="img/design/banner-ia-07.jpg" width="640" height="800" alt="Banner com imagem gerada por IA" loading="lazy"></div></div>
 </section>
 
 <!-- janela para assistir com som -->
@@ -611,6 +637,16 @@
     addEventListener('mouseup',()=>{ativo=false;c.style.cursor=''});
     addEventListener('mousemove',e=>{if(ativo)c.scrollLeft=s0-(e.pageX-x0)});
   });
+
+  // ===== MENU NO CELULAR + LINK ATIVO =====
+  const nav=document.querySelector('.nav'), hamb=nav.querySelector('.hamb');
+  hamb.addEventListener('click',()=>{const a=nav.classList.toggle('aberto');hamb.setAttribute('aria-expanded',a);document.body.style.overflow=a?'hidden':''});
+  nav.querySelectorAll('.menu a').forEach(l=>l.addEventListener('click',e=>{if(!nav.classList.contains('aberto'))return;e.preventDefault();nav.classList.remove('aberto');hamb.setAttribute('aria-expanded',false);document.body.style.overflow='';const alvo=document.querySelector(l.getAttribute('href'));requestAnimationFrame(()=>alvo.scrollIntoView({behavior:'smooth'}));history.replaceState(null,'',l.getAttribute('href'))}));
+  const links=[...nav.querySelectorAll('.menu a')];
+  const secoes=links.map(l=>document.querySelector(l.getAttribute('href'))).filter(Boolean);
+  const marca=()=>{let atual=secoes[0];secoes.forEach(sec=>{if(sec.getBoundingClientRect().top<innerHeight*.4)atual=sec});
+    links.forEach(l=>l.classList.toggle('ativo',l.getAttribute('href')==='#'+atual.id))};
+  addEventListener('scroll',marca,{passive:true});marca();
 </script>
 </body>
 </html>
